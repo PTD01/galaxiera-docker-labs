@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+
+   container_1_1:
+      image: httpd:2.4
+      networks:
+       - reseaux_1
+
+   container_1_2:
+      image: nginx
+      networks: 
+       - reseaux_1
+
+   container_2_1:
+      image: httpd:2.4
+      networks:
+       - reseaux_2
+      ports:
+       - 127.0.0.1:8081:80
+
+   container_2_2:
+       image: nginx
+       networks:
+        - reseaux_2
+
+networks:
+   reseaux_1: 
+   reseaux_2:
